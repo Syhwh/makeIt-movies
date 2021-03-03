@@ -10,6 +10,7 @@ export const AppNavbarView = () => {
         <Nav className="mr-auto">
           <Nav.Link href="/movies">Movies</Nav.Link>
           <Nav.Link href="/shows">Tv Shows</Nav.Link>
+          <Nav.Link href="/login">logout</Nav.Link>
         </Nav>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />

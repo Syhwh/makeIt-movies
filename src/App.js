@@ -7,19 +7,17 @@ import {
 import './App.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { MoviesPage } from './components/UI/Pages/MoviesPage';
-import { Shows } from "./components/Shows/Shows";
-import { AppNavbarView } from "./components/UI/NavBar/AppNavbarView";
+
+import { Login } from "./components/Login/Login";
+import { MainRoutes } from "./components/Routes/MainRoutes";
 
 function App() {
   return (<>
     <Router>
       <div>
-        <AppNavbarView />
         <Switch>
-          <Route path="/movies" component={MoviesPage} />
-          <Route path="/shows" component={Shows} />
-          <Route path="/" />
+          <Route path='/login' component={Login} />
+          <Route path='/' component={MainRoutes} />
         </Switch>
       </div>
     </Router>

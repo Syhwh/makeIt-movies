@@ -19,8 +19,9 @@ export const Movies = ({ endPoint }) => {
   if (!movies) return <div>Loading...</div>
 
   return (
-    <>
+    <div>
       {movies.map(movie => <Movie key={movie.id} movie={movie} />)}
-    </>
+    </div>
+
   )
 }
