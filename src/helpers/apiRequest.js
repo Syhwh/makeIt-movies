@@ -11,3 +11,8 @@ export const movieAPI = axios.create({
   timeout: 5000,
 });
 
+export const tvShowsAPI = axios.create({
+  baseURL: BASE_URL.shows,
+  timeout: 5000,
+});
+

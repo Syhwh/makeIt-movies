@@ -7,8 +7,9 @@ export const Login = ({ history }) => {
   }
 
   return (
-    <div>
-      Login
+    <div className='container mt-5'>
+      <h2>Login</h2>
+      <hr />
       <button className={'btn btn-primary'} onClick={handleOnClick} >Login</button>
     </div>
   )
