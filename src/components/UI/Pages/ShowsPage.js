@@ -3,7 +3,6 @@ import React from 'react'
 import { Shows } from '../../Shows/Shows'
 
 
-
 export const ShowsPage = () => {
   return (
     <div className='container' >

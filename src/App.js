@@ -1,14 +1,17 @@
-
+import { useState } from 'react'
 import './App.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AppRouter } from './components/Routes/AppRouter';
-
-
+import { MoviesContextProvider } from './context/MoviesContext';
 
 function App() {
-  return (
-    <AppRouter />
+
+  return (<>
+    <MoviesContextProvider>
+      <AppRouter />
+    </MoviesContextProvider>
+  </>
   );
 }
 

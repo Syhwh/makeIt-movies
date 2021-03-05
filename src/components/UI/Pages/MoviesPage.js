@@ -2,8 +2,6 @@ import React from 'react'
 
 import { Movies } from '../../Movies/Movies'
 
-
-
 export const MoviesPage = () => {
   return (
     <div className='container' >

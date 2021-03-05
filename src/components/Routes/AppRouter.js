@@ -7,8 +7,6 @@ import {
 import { MainPage } from "../UI/Pages/MainPage";
 import { MainRoutes } from "./MainRoutes";
 
-
-
 export const AppRouter = () => {
   return (
     <Router>

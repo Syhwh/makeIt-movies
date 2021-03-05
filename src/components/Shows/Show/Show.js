@@ -16,7 +16,7 @@ export const Show = ({ show }) => {
         <Card.Text>
           {overview}
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Button variant="primary">Favorito</Button>
       </Card.Body>
     </Card>
   )
