@@ -8,7 +8,7 @@ export const MoviesRoutes = ({ title = '' }) => {
   let { path, url } = useRouteMatch();
   return (
     <>
-      <NavDropdown title={title} id="basic-nav-dropdown">
+      <NavDropdown title={title} id='basic-nav-dropdown'>
         <Link className='dropdown-item' to={`${url}/popular`}>Popular</Link>
         <NavDropdown.Divider />
         <Link className='dropdown-item' to={`${url}/top_rated`}>Top Rated</Link>

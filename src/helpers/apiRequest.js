@@ -2,7 +2,8 @@ import axios from 'axios'
 
 const BASE_URL = {
   movies: 'https://api.themoviedb.org/3/movie',
-  shows: 'https://api.themoviedb.org/3/tv/'
+  shows: 'https://api.themoviedb.org/3/tv/',
+  search: `https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_API_KEY}&query=`
 }
 
 
@@ -16,6 +17,10 @@ export const tvShowsAPI = axios.create({
   timeout: 5000,
 });
 
+export const searchAPI = axios.create({
+  baseURL: BASE_URL.search,
+  timeout: 5000
+})
 
 export const getApiEndpoint = (path) => {
   switch (path) {

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Navbar, Nav } from 'react-bootstrap'
+import { SearchContainer } from '../../Search/SearchContainer'
 
 
 export const AppNavbarView = () => {
@@ -15,6 +16,7 @@ export const AppNavbarView = () => {
           <Link to='/shows' className='nav nav-link'>Tv Shows</Link>
           <Link to='/favorites' className='nav nav-link'>Favorites</Link>
         </Nav>
+        <SearchContainer />
       </Navbar.Collapse>
     </Navbar>
   </>
