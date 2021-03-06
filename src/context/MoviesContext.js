@@ -3,10 +3,12 @@ import React, { createContext, useState } from 'react'
 export const MoviesContext = createContext()
 
 export const MoviesContextProvider = ({ children }) => {
-  console.log('render contex')
-  const [favourites, setFavourites] = useState([])
+
+  const [favorites, setFavorites] = useState([])
+  const [showAlert, setShowAlert] = useState(false)
+  const [notificationData, setNotificationData] = useState({})
   const contextValue = {
-    favourites, setFavourites
+    favorites, setFavorites, showAlert, setShowAlert, notificationData, setNotificationData
   }
 
   return (

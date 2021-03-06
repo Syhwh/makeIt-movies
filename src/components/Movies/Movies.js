@@ -1,13 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react'
+
 import { MoviesContext } from '../../context/MoviesContext';
 
 import { movieAPI } from '../../helpers/apiRequest';
-import { Movie } from './Movie/Movie';
+import { MediaCard } from '../MediaCard/MediaCard';
+import { LoadingSpinner } from '../shared/LoadingSpinner';
+
 
 export const Movies = ({ endPoint }) => {
 
   const [movies, setMovies] = useState()
-  const { favourites, setFavourites } = useContext(MoviesContext)
+  const { favorites, setFavorites, setShowAlert, setNotificationData } = useContext(MoviesContext)
   const fetchMovies = async () => {
     const { data } = await movieAPI.get(`/${endPoint}?api_key=${process.env.REACT_APP_API_KEY}`)
     setMovies(data.results)
@@ -15,12 +18,14 @@ export const Movies = ({ endPoint }) => {
 
   useEffect(() => {
     fetchMovies()
-  }, []);
+  }, [endPoint]);
 
-  if (!movies) return <div>Loading...</div>
+  if (!movies) return <LoadingSpinner />
 
   const handleSave = (movie) => {
-    setFavourites([movie, ...favourites])
+    setFavorites([movie, ...favorites])
+    setShowAlert(true)
+    setNotificationData({ element: 'movie', action: 'saved' })
   }
 
   return (
@@ -28,10 +33,9 @@ export const Movies = ({ endPoint }) => {
       <div className='row'>
         {movies.map(movie => (
           <div className='col-md-4' key={movie.id}>
-            <Movie movie={movie} handleOnClick={handleSave} />
+            <MediaCard media={movie} handleOnClick={handleSave} buttonText='Add to Favorites' variant={'success'} />
           </div>))}
       </div>
     </div>
-
   )
 }
