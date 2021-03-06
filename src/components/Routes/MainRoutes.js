@@ -7,8 +7,9 @@ import { AlertMessage } from '../shared/AlertMessage'
 
 import { AppNavbarView } from '../UI/NavBar/AppNavbarView'
 import { FavoritesPage } from '../UI/Pages/FavoritesPage'
-import { MoviesPage } from '../UI/Pages/MoviesPage'
-import { ShowsPage } from '../UI/Pages/ShowsPage'
+import { MediaPage } from '../UI/Pages/MediaPage'
+
+
 import { MoviesRoutes } from './MoviesRoutes'
 import { SeriesRoutes } from './SeriesRoutes'
 
@@ -19,17 +20,19 @@ export const MainRoutes = () => {
       <AppNavbarView />
       {showAlert && <AlertMessage />}
       <Switch>
-        <Route path="/shows" >
-          <SeriesRoutes title={'Series'} />
-          <ShowsPage />
-        </Route>
         <Route path="/favorites" component={FavoritesPage} />
         <Route path="/login" component={Login} />
+        <Route path="/shows" >
+          <SeriesRoutes title={'Series'} />
+          <MediaPage mediaType={'Series'} />
+        </Route>
         <Route path="/movies" >
           <MoviesRoutes title={'Movies'} />
-          <MoviesPage />
+          <MediaPage mediaType={'Movies'} />
         </Route>
-        <Route path="/" component={MoviesPage} />
+        <Route path="/" >
+          <MediaPage mediaType={'Movies'} />
+        </Route>
       </Switch>
     </>
   )

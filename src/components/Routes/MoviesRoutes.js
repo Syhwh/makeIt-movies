@@ -1,7 +1,8 @@
 import React from 'react'
 import { NavDropdown } from 'react-bootstrap'
 import { Route, Switch, useRouteMatch, Link } from 'react-router-dom'
-import { MoviesPage } from '../UI/Pages/MoviesPage'
+import { MediaPage } from '../UI/Pages/MediaPage';
+
 
 export const MoviesRoutes = ({ title = '' }) => {
   let { path, url } = useRouteMatch();
@@ -16,7 +17,7 @@ export const MoviesRoutes = ({ title = '' }) => {
       </NavDropdown>
       <Switch>
         <Route path={`${path}/:id`}  >
-          <MoviesPage />
+          <MediaPage mediaType='Movies' />
         </Route>
       </Switch>
     </>

@@ -13,8 +13,7 @@ export const AlertMessage = () => {
     <div
       style={{
         position: 'relative',
-        minHeight: '100px',
-        zIndex: 1
+        zIndex: 1,
       }}
     >
       <Toast

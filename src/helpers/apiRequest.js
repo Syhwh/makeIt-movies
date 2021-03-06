@@ -16,3 +16,14 @@ export const tvShowsAPI = axios.create({
   timeout: 5000,
 });
 
+
+export const getApiEndpoint = (path) => {
+  switch (path) {
+    case '/movies':
+      return movieAPI
+    case '/shows':
+      return tvShowsAPI
+    default:
+      return movieAPI
+  }
+}

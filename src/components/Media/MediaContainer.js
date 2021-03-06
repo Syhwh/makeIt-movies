@@ -1,31 +1,37 @@
 import React, { useState, useEffect, useContext } from 'react'
+import { useRouteMatch } from 'react-router-dom';
 
 import { MoviesContext } from '../../context/MoviesContext';
 
-import { movieAPI } from '../../helpers/apiRequest';
-import { MediaCard } from '../MediaCard/MediaCard';
+import { getApiEndpoint } from '../../helpers/apiRequest';
+
 import { LoadingSpinner } from '../shared/LoadingSpinner';
+import { MediaCard } from './MediaCard';
 
 
-export const Movies = ({ endPoint }) => {
-
+export const MediaContainer = ({ endPoint, mediaType }) => {
+  const { path, url } = useRouteMatch()
   const [movies, setMovies] = useState()
+
   const { favorites, setFavorites, setShowAlert, setNotificationData } = useContext(MoviesContext)
-  const fetchMovies = async () => {
-    const { data } = await movieAPI.get(`/${endPoint}?api_key=${process.env.REACT_APP_API_KEY}`)
+
+  const apiEndpoint = getApiEndpoint(path)
+
+  const fetchMovies = async (api, endPoint) => {
+    const { data } = await api.get(`/${endPoint}?api_key=${process.env.REACT_APP_API_KEY}`)
     setMovies(data.results)
   }
 
   useEffect(() => {
-    fetchMovies()
-  }, [endPoint]);
+    fetchMovies(apiEndpoint, endPoint)
+  }, [endPoint])
 
   if (!movies) return <LoadingSpinner />
 
   const handleSave = (movie) => {
     setFavorites([movie, ...favorites])
     setShowAlert(true)
-    setNotificationData({ element: 'movie', action: 'saved' })
+    setNotificationData({ element: `${mediaType}`, action: 'saved' })
   }
 
   return (
@@ -39,3 +45,5 @@ export const Movies = ({ endPoint }) => {
     </div>
   )
 }
+
+
