@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Navbar, Form, Button, Nav, FormControl } from 'react-bootstrap'
+import { AuthContext } from '../../../context/AuthContext'
 
 export const AppNavbarView = () => {
+
+  const { userAuth, logout } = useContext(AuthContext)
+
+
   return (
     <Navbar bg="light" expand="lg">
       <Navbar.Brand href="/">Movies APP</Navbar.Brand>
@@ -13,12 +18,12 @@ export const AppNavbarView = () => {
           <Link to='/shows' className='nav nav-link'>Tv Shows</Link>
           <Link to='/favorites' className='nav nav-link'>Favorites</Link>
         </Nav>
-        <Nav.Link href="/login">logout</Nav.Link>
-        <Nav.Link>Pepito Perez</Nav.Link>
-        <Form inline>
+        <Nav.Link>Welcome {userAuth}</Nav.Link>
+        <Button onClick={logout} variant="outline-success">logout</Button>
+
+        {/* <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-success">Search</Button>
-        </Form>
+        </Form> */}
       </Navbar.Collapse>
     </Navbar>
   )

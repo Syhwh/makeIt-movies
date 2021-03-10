@@ -5,7 +5,7 @@ const BASE_URL = {
   images: 'https://image.tmdb.org/t/p/w500'
 }
 
-export const Movie = ({ movie, handleOnClick }) => {
+export const Movie = ({ movie, handleOnClick, buttonText, variant }) => {
   const { title, overview, poster_path, vote_average } = movie
   return (
     <Card style={{ width: '18rem', margin: '2rem', }} >
@@ -16,7 +16,7 @@ export const Movie = ({ movie, handleOnClick }) => {
         <Card.Text>
           {overview}
         </Card.Text>
-        <Button onClick={() => handleOnClick(movie)} variant="primary">Favorito</Button>
+        <Button onClick={() => handleOnClick(movie)} variant={variant}>{buttonText}</Button>
       </Card.Body>
     </Card>
   )

@@ -4,9 +4,9 @@ export const MoviesContext = createContext()
 
 export const MoviesContextProvider = ({ children }) => {
   console.log('render contex')
-  const [favourites, setFavourites] = useState([])
+  const [favorites, setFavorites] = useState([])
   const contextValue = {
-    favourites, setFavourites
+    favorites, setFavorites
   }
 
   return (
